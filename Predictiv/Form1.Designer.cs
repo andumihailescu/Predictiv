@@ -28,64 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pbOriginalImage = new PictureBox();
+            pbErrorImage = new PictureBox();
+            pbDecodedImage = new PictureBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
+            btnLoadImage = new Button();
+            btnPredict = new Button();
+            btnStore = new Button();
+            btnSaveDecoded = new Button();
+            btnDecode = new Button();
+            btnLoadEncoded = new Button();
+            btnShowErrorMatrix = new Button();
             numericUpDown1 = new NumericUpDown();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            radioButton5 = new RadioButton();
-            radioButton6 = new RadioButton();
-            radioButton7 = new RadioButton();
-            radioButton8 = new RadioButton();
-            radioButton9 = new RadioButton();
-            radioButton10 = new RadioButton();
-            radioButton11 = new RadioButton();
-            radioButton12 = new RadioButton();
+            rb128 = new RadioButton();
+            rbA = new RadioButton();
+            rbB = new RadioButton();
+            rbC = new RadioButton();
+            rbABC = new RadioButton();
+            rbABC2 = new RadioButton();
+            rbBAC2 = new RadioButton();
+            rbAB2 = new RadioButton();
+            rbJpegLS = new RadioButton();
+            rbOriginal = new RadioButton();
+            rbErrorProtection = new RadioButton();
+            rbDecoded = new RadioButton();
             numericUpDown2 = new NumericUpDown();
-            button8 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            btnShowHistogram = new Button();
+            ((System.ComponentModel.ISupportInitialize)pbOriginalImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbErrorImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbDecodedImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pbOriginalImage
             // 
-            pictureBox1.Location = new Point(54, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(256, 256);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbOriginalImage.Location = new Point(54, 12);
+            pbOriginalImage.Name = "pbOriginalImage";
+            pbOriginalImage.Size = new Size(256, 256);
+            pbOriginalImage.TabIndex = 0;
+            pbOriginalImage.TabStop = false;
             // 
-            // pictureBox2
+            // pbErrorImage
             // 
-            pictureBox2.Location = new Point(360, 12);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(256, 256);
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            pbErrorImage.Location = new Point(360, 12);
+            pbErrorImage.Name = "pbErrorImage";
+            pbErrorImage.Size = new Size(256, 256);
+            pbErrorImage.TabIndex = 1;
+            pbErrorImage.TabStop = false;
             // 
-            // pictureBox3
+            // pbDecodedImage
             // 
-            pictureBox3.Location = new Point(669, 12);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(256, 256);
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
+            pbDecodedImage.Location = new Point(669, 12);
+            pbDecodedImage.Name = "pbDecodedImage";
+            pbDecodedImage.Size = new Size(256, 256);
+            pbDecodedImage.TabIndex = 2;
+            pbDecodedImage.TabStop = false;
             // 
             // label1
             // 
@@ -114,68 +114,70 @@
             label3.TabIndex = 5;
             label3.Text = "Decoded image";
             // 
-            // button1
+            // btnLoadImage
             // 
-            button1.Location = new Point(12, 294);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 29);
-            button1.TabIndex = 6;
-            button1.Text = "Load image";
-            button1.UseVisualStyleBackColor = true;
+            btnLoadImage.Location = new Point(12, 294);
+            btnLoadImage.Name = "btnLoadImage";
+            btnLoadImage.Size = new Size(108, 29);
+            btnLoadImage.TabIndex = 6;
+            btnLoadImage.Text = "Load image";
+            btnLoadImage.UseVisualStyleBackColor = true;
+            btnLoadImage.Click += btnLoadImage_Click;
             // 
-            // button2
+            // btnPredict
             // 
-            button2.Location = new Point(126, 294);
-            button2.Name = "button2";
-            button2.Size = new Size(108, 29);
-            button2.TabIndex = 7;
-            button2.Text = "Predict";
-            button2.UseVisualStyleBackColor = true;
+            btnPredict.Location = new Point(126, 294);
+            btnPredict.Name = "btnPredict";
+            btnPredict.Size = new Size(108, 29);
+            btnPredict.TabIndex = 7;
+            btnPredict.Text = "Predict";
+            btnPredict.UseVisualStyleBackColor = true;
+            btnPredict.Click += btnPredict_Click;
             // 
-            // button3
+            // btnStore
             // 
-            button3.Location = new Point(240, 294);
-            button3.Name = "button3";
-            button3.Size = new Size(108, 29);
-            button3.TabIndex = 8;
-            button3.Text = "Store";
-            button3.UseVisualStyleBackColor = true;
+            btnStore.Location = new Point(240, 294);
+            btnStore.Name = "btnStore";
+            btnStore.Size = new Size(108, 29);
+            btnStore.TabIndex = 8;
+            btnStore.Text = "Store";
+            btnStore.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnSaveDecoded
             // 
-            button4.Location = new Point(857, 294);
-            button4.Name = "button4";
-            button4.Size = new Size(113, 29);
-            button4.TabIndex = 11;
-            button4.Text = "Save Decoded";
-            button4.UseVisualStyleBackColor = true;
+            btnSaveDecoded.Location = new Point(857, 294);
+            btnSaveDecoded.Name = "btnSaveDecoded";
+            btnSaveDecoded.Size = new Size(113, 29);
+            btnSaveDecoded.TabIndex = 11;
+            btnSaveDecoded.Text = "Save Decoded";
+            btnSaveDecoded.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnDecode
             // 
-            button5.Location = new Point(743, 294);
-            button5.Name = "button5";
-            button5.Size = new Size(108, 29);
-            button5.TabIndex = 10;
-            button5.Text = "Decode";
-            button5.UseVisualStyleBackColor = true;
+            btnDecode.Location = new Point(743, 294);
+            btnDecode.Name = "btnDecode";
+            btnDecode.Size = new Size(108, 29);
+            btnDecode.TabIndex = 10;
+            btnDecode.Text = "Decode";
+            btnDecode.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnLoadEncoded
             // 
-            button6.Location = new Point(625, 294);
-            button6.Name = "button6";
-            button6.Size = new Size(112, 29);
-            button6.TabIndex = 9;
-            button6.Text = "Load encoded";
-            button6.UseVisualStyleBackColor = true;
+            btnLoadEncoded.Location = new Point(625, 294);
+            btnLoadEncoded.Name = "btnLoadEncoded";
+            btnLoadEncoded.Size = new Size(112, 29);
+            btnLoadEncoded.TabIndex = 9;
+            btnLoadEncoded.Text = "Load encoded";
+            btnLoadEncoded.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnShowErrorMatrix
             // 
-            button7.Location = new Point(453, 294);
-            button7.Name = "button7";
-            button7.Size = new Size(135, 29);
-            button7.TabIndex = 12;
-            button7.Text = "Show error matrix";
-            button7.UseVisualStyleBackColor = true;
+            btnShowErrorMatrix.Location = new Point(453, 294);
+            btnShowErrorMatrix.Name = "btnShowErrorMatrix";
+            btnShowErrorMatrix.Size = new Size(135, 29);
+            btnShowErrorMatrix.TabIndex = 12;
+            btnShowErrorMatrix.Text = "Show error matrix";
+            btnShowErrorMatrix.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
             // 
@@ -186,137 +188,127 @@
             numericUpDown1.TabIndex = 13;
             numericUpDown1.Value = new decimal(new int[] { 15, 0, 0, 65536 });
             // 
-            // radioButton1
+            // rb128
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(54, 329);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(54, 24);
-            radioButton1.TabIndex = 14;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "128";
-            radioButton1.UseVisualStyleBackColor = true;
+            rb128.AutoSize = true;
+            rb128.Checked = true;
+            rb128.Location = new Point(54, 329);
+            rb128.Name = "rb128";
+            rb128.Size = new Size(54, 24);
+            rb128.TabIndex = 14;
+            rb128.TabStop = true;
+            rb128.Text = "128";
+            rb128.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbA
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(54, 359);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(40, 24);
-            radioButton2.TabIndex = 15;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "A";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbA.AutoSize = true;
+            rbA.Location = new Point(54, 359);
+            rbA.Name = "rbA";
+            rbA.Size = new Size(40, 24);
+            rbA.TabIndex = 15;
+            rbA.Text = "A";
+            rbA.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbB
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(54, 389);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(39, 24);
-            radioButton3.TabIndex = 16;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "B";
-            radioButton3.UseVisualStyleBackColor = true;
+            rbB.AutoSize = true;
+            rbB.Location = new Point(54, 389);
+            rbB.Name = "rbB";
+            rbB.Size = new Size(39, 24);
+            rbB.TabIndex = 16;
+            rbB.Text = "B";
+            rbB.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbC
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(54, 419);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(39, 24);
-            radioButton4.TabIndex = 17;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "C";
-            radioButton4.UseVisualStyleBackColor = true;
+            rbC.AutoSize = true;
+            rbC.Location = new Point(54, 419);
+            rbC.Name = "rbC";
+            rbC.Size = new Size(39, 24);
+            rbC.TabIndex = 17;
+            rbC.Text = "C";
+            rbC.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbABC
             // 
-            radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(54, 449);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(90, 24);
-            radioButton5.TabIndex = 18;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "A + B - C";
-            radioButton5.UseVisualStyleBackColor = true;
+            rbABC.AutoSize = true;
+            rbABC.Location = new Point(54, 449);
+            rbABC.Name = "rbABC";
+            rbABC.Size = new Size(90, 24);
+            rbABC.TabIndex = 18;
+            rbABC.Text = "A + B - C";
+            rbABC.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // rbABC2
             // 
-            radioButton6.AutoSize = true;
-            radioButton6.Location = new Point(54, 479);
-            radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(122, 24);
-            radioButton6.TabIndex = 19;
-            radioButton6.TabStop = true;
-            radioButton6.Text = "A + (B - C) / 2";
-            radioButton6.UseVisualStyleBackColor = true;
+            rbABC2.AutoSize = true;
+            rbABC2.Location = new Point(54, 479);
+            rbABC2.Name = "rbABC2";
+            rbABC2.Size = new Size(122, 24);
+            rbABC2.TabIndex = 19;
+            rbABC2.Text = "A + (B - C) / 2";
+            rbABC2.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // rbBAC2
             // 
-            radioButton7.AutoSize = true;
-            radioButton7.Location = new Point(54, 509);
-            radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(122, 24);
-            radioButton7.TabIndex = 20;
-            radioButton7.TabStop = true;
-            radioButton7.Text = "B + (A - C) / 2";
-            radioButton7.UseVisualStyleBackColor = true;
+            rbBAC2.AutoSize = true;
+            rbBAC2.Location = new Point(54, 509);
+            rbBAC2.Name = "rbBAC2";
+            rbBAC2.Size = new Size(122, 24);
+            rbBAC2.TabIndex = 20;
+            rbBAC2.Text = "B + (A - C) / 2";
+            rbBAC2.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // rbAB2
             // 
-            radioButton8.AutoSize = true;
-            radioButton8.Location = new Point(54, 539);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(99, 24);
-            radioButton8.TabIndex = 21;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "(A + B) / 2";
-            radioButton8.UseVisualStyleBackColor = true;
+            rbAB2.AutoSize = true;
+            rbAB2.Location = new Point(54, 539);
+            rbAB2.Name = "rbAB2";
+            rbAB2.Size = new Size(99, 24);
+            rbAB2.TabIndex = 21;
+            rbAB2.Text = "(A + B) / 2";
+            rbAB2.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // rbJpegLS
             // 
-            radioButton9.AutoSize = true;
-            radioButton9.Location = new Point(54, 569);
-            radioButton9.Name = "radioButton9";
-            radioButton9.Size = new Size(75, 24);
-            radioButton9.TabIndex = 22;
-            radioButton9.TabStop = true;
-            radioButton9.Text = "jpegLS";
-            radioButton9.UseVisualStyleBackColor = true;
+            rbJpegLS.AutoSize = true;
+            rbJpegLS.Location = new Point(54, 569);
+            rbJpegLS.Name = "rbJpegLS";
+            rbJpegLS.Size = new Size(75, 24);
+            rbJpegLS.TabIndex = 22;
+            rbJpegLS.Text = "jpegLS";
+            rbJpegLS.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // rbOriginal
             // 
-            radioButton10.AutoSize = true;
-            radioButton10.Location = new Point(360, 329);
-            radioButton10.Name = "radioButton10";
-            radioButton10.Size = new Size(83, 24);
-            radioButton10.TabIndex = 23;
-            radioButton10.TabStop = true;
-            radioButton10.Text = "Original";
-            radioButton10.UseVisualStyleBackColor = true;
+            rbOriginal.AutoSize = true;
+            rbOriginal.Location = new Point(360, 329);
+            rbOriginal.Name = "rbOriginal";
+            rbOriginal.Size = new Size(83, 24);
+            rbOriginal.TabIndex = 23;
+            rbOriginal.Text = "Original";
+            rbOriginal.UseVisualStyleBackColor = true;
             // 
-            // radioButton11
+            // rbErrorProtection
             // 
-            radioButton11.AutoSize = true;
-            radioButton11.Location = new Point(360, 359);
-            radioButton11.Name = "radioButton11";
-            radioButton11.Size = new Size(135, 24);
-            radioButton11.TabIndex = 24;
-            radioButton11.TabStop = true;
-            radioButton11.Text = "Error protection";
-            radioButton11.UseVisualStyleBackColor = true;
+            rbErrorProtection.AutoSize = true;
+            rbErrorProtection.Location = new Point(360, 359);
+            rbErrorProtection.Name = "rbErrorProtection";
+            rbErrorProtection.Size = new Size(135, 24);
+            rbErrorProtection.TabIndex = 24;
+            rbErrorProtection.Text = "Error protection";
+            rbErrorProtection.UseVisualStyleBackColor = true;
             // 
-            // radioButton12
+            // rbDecoded
             // 
-            radioButton12.AutoSize = true;
-            radioButton12.Location = new Point(360, 389);
-            radioButton12.Name = "radioButton12";
-            radioButton12.Size = new Size(91, 24);
-            radioButton12.TabIndex = 25;
-            radioButton12.TabStop = true;
-            radioButton12.Text = "Decoded";
-            radioButton12.UseVisualStyleBackColor = true;
+            rbDecoded.AutoSize = true;
+            rbDecoded.Location = new Point(360, 389);
+            rbDecoded.Name = "rbDecoded";
+            rbDecoded.Size = new Size(91, 24);
+            rbDecoded.TabIndex = 25;
+            rbDecoded.Text = "Decoded";
+            rbDecoded.UseVisualStyleBackColor = true;
             // 
             // numericUpDown2
             // 
@@ -327,53 +319,53 @@
             numericUpDown2.TabIndex = 26;
             numericUpDown2.Value = new decimal(new int[] { 3, 0, 0, 65536 });
             // 
-            // button8
+            // btnShowHistogram
             // 
-            button8.Location = new Point(360, 449);
-            button8.Name = "button8";
-            button8.Size = new Size(135, 29);
-            button8.TabIndex = 27;
-            button8.Text = "Show histogram";
-            button8.UseVisualStyleBackColor = true;
+            btnShowHistogram.Location = new Point(360, 449);
+            btnShowHistogram.Name = "btnShowHistogram";
+            btnShowHistogram.Size = new Size(135, 29);
+            btnShowHistogram.TabIndex = 27;
+            btnShowHistogram.Text = "Show histogram";
+            btnShowHistogram.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 653);
-            Controls.Add(button8);
+            Controls.Add(btnShowHistogram);
             Controls.Add(numericUpDown2);
-            Controls.Add(radioButton12);
-            Controls.Add(radioButton11);
-            Controls.Add(radioButton10);
-            Controls.Add(radioButton9);
-            Controls.Add(radioButton8);
-            Controls.Add(radioButton7);
-            Controls.Add(radioButton6);
-            Controls.Add(radioButton5);
-            Controls.Add(radioButton4);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
+            Controls.Add(rbDecoded);
+            Controls.Add(rbErrorProtection);
+            Controls.Add(rbOriginal);
+            Controls.Add(rbJpegLS);
+            Controls.Add(rbAB2);
+            Controls.Add(rbBAC2);
+            Controls.Add(rbABC2);
+            Controls.Add(rbABC);
+            Controls.Add(rbC);
+            Controls.Add(rbB);
+            Controls.Add(rbA);
+            Controls.Add(rb128);
             Controls.Add(numericUpDown1);
-            Controls.Add(button7);
-            Controls.Add(button4);
-            Controls.Add(button5);
-            Controls.Add(button6);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnShowErrorMatrix);
+            Controls.Add(btnSaveDecoded);
+            Controls.Add(btnDecode);
+            Controls.Add(btnLoadEncoded);
+            Controls.Add(btnStore);
+            Controls.Add(btnPredict);
+            Controls.Add(btnLoadImage);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(pbDecodedImage);
+            Controls.Add(pbErrorImage);
+            Controls.Add(pbOriginalImage);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbOriginalImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbErrorImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbDecodedImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
@@ -381,33 +373,33 @@
         }
 
         #endregion
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox pbOriginalImage;
+        private PictureBox pbErrorImage;
+        private PictureBox pbDecodedImage;
         private Label label1;
         private Label label2;
         private Label label3;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
+        private Button btnLoadImage;
+        private Button btnPredict;
+        private Button btnStore;
+        private Button btnSaveDecoded;
+        private Button btnDecode;
+        private Button btnLoadEncoded;
+        private Button btnShowErrorMatrix;
         private NumericUpDown numericUpDown1;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton5;
-        private RadioButton radioButton6;
-        private RadioButton radioButton7;
-        private RadioButton radioButton8;
-        private RadioButton radioButton9;
-        private RadioButton radioButton10;
-        private RadioButton radioButton11;
-        private RadioButton radioButton12;
+        private RadioButton rb128;
+        private RadioButton rbA;
+        private RadioButton rbB;
+        private RadioButton rbC;
+        private RadioButton rbABC;
+        private RadioButton rbABC2;
+        private RadioButton rbBAC2;
+        private RadioButton rbAB2;
+        private RadioButton rbJpegLS;
+        private RadioButton rbOriginal;
+        private RadioButton rbErrorProtection;
+        private RadioButton rbDecoded;
         private NumericUpDown numericUpDown2;
-        private Button button8;
+        private Button btnShowHistogram;
     }
 }
