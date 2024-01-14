@@ -161,6 +161,7 @@
             btnDecode.TabIndex = 10;
             btnDecode.Text = "Decode";
             btnDecode.UseVisualStyleBackColor = true;
+            btnDecode.Click += btnDecode_Click;
             // 
             // btnLoadEncoded
             // 
@@ -170,6 +171,7 @@
             btnLoadEncoded.TabIndex = 9;
             btnLoadEncoded.Text = "Load encoded";
             btnLoadEncoded.UseVisualStyleBackColor = true;
+            btnLoadEncoded.Click += btnLoadEncoded_Click;
             // 
             // btnShowErrorMatrix
             // 

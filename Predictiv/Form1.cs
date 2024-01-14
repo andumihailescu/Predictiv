@@ -5,6 +5,7 @@ namespace Predictiv
     public partial class Form1 : Form
     {
         private Encoder encoder;
+        private Decoder decoder;
         private uint predictionNumber;
 
         public Form1()
@@ -41,6 +42,8 @@ namespace Predictiv
             encoder.SetSelectedPredictor(predictionNumber);
 
             encoder.CalculatePredictionMatrix();
+
+            encoder.CalculateErrorMatrix();
         }
 
         private void CheckPredictionButtons()
@@ -77,31 +80,58 @@ namespace Predictiv
             {
                 predictionNumber = 7;
             }
+            if (rbJpegLS.Checked)
+            {
+                predictionNumber = 8;
+            }
         }
 
-        private void displayImage(int[,] imageMatrix)
+        private void DisplayImage(PictureBox pictureBox, int[,] imageMatrix)
         {
             Bitmap bmp = new Bitmap(256, 256);
             for (int i = 0; i < 256; i++)
             {
                 for (int j = 0; j < 256; j++)
                 {
-                    int pixelValue = 128 + imageMatrix[j, i] * 2;
+                    int pixelValue = imageMatrix[j, i];
                     bmp.SetPixel(i, j, Color.FromArgb(pixelValue, pixelValue, pixelValue));
                 }
             }
-            pbErrorImage.Image = bmp;
+            pictureBox.Image = bmp;
         }
 
         private void btnShowErrorMatrix_Click(object sender, EventArgs e)
         {
-            encoder.CalculateErrorMatrix();
-            displayImage(encoder.GetErrorMatrix());
+            DisplayImage(pbErrorImage, encoder.GetErrorMatrix());
         }
 
         private void btnStore_Click(object sender, EventArgs e)
         {
             encoder.EncodeImage();
+        }
+
+        private void btnLoadEncoded_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "PRE Files (*.pre)|*.pre|All Files|*.*";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    decoder = new Decoder(openFileDialog.FileName);
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+        }
+
+        private void btnDecode_Click(object sender, EventArgs e)
+        {
+            decoder.DecodeImage();
+            DisplayImage(pbDecodedImage, decoder.GetImageMatrix());
         }
     }
 }

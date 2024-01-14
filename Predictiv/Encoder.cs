@@ -78,7 +78,7 @@ namespace Predictiv
             }
             else
             {
-                predictionMatrix[0, 0] = 128; //8
+                predictionMatrix[0, 0] = 128;
 
                 for (int i = 1; i < 256; i++)
                 {
@@ -93,7 +93,8 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = imageMatrix[i, j - 1];
+                                int A = imageMatrix[i, j - 1];
+                                predictionMatrix[i, j] = A;
                             }
                         }
                         break;
@@ -102,7 +103,8 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = imageMatrix[i - 1, j];
+                                int B = imageMatrix[i - 1, j];
+                                predictionMatrix[i, j] = B;
                             }
                         }
                         break;
@@ -111,7 +113,8 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = imageMatrix[i - 1, j - 1];
+                                int C = imageMatrix[i - 1, j - 1];
+                                predictionMatrix[i, j] = C;
                             }
                         }
                         break;
@@ -120,7 +123,8 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = imageMatrix[i, j - 1] + imageMatrix[i - 1, j] - imageMatrix[i - 1, j - 1];
+                                int A = imageMatrix[i, j - 1]; int B = imageMatrix[i - 1, j]; int C = imageMatrix[i - 1, j - 1];
+                                predictionMatrix[i, j] = A + B - C;
                             }
                         }
                         break;
@@ -129,7 +133,8 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = imageMatrix[i, j - 1] + (imageMatrix[i - 1, j] - imageMatrix[i - 1, j - 1]) / 2;
+                                int A = imageMatrix[i, j - 1]; int B = imageMatrix[i - 1, j]; int C = imageMatrix[i - 1, j - 1];
+                                predictionMatrix[i, j] = A + (B - C) / 2;
                             }
                         }
                         break;
@@ -138,7 +143,8 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = imageMatrix[i - 1, j] + (imageMatrix[i, j - 1] - imageMatrix[i - 1, j - 1]) / 2;
+                                int A = imageMatrix[i, j - 1]; int B = imageMatrix[i - 1, j]; int C = imageMatrix[i - 1, j - 1];
+                                predictionMatrix[i, j] = B + (A - C) / 2;
                             }
                         }
                         break;
@@ -147,7 +153,40 @@ namespace Predictiv
                         {
                             for (int j = 1; j < 256; j++)
                             {
-                                predictionMatrix[i, j] = (imageMatrix[i, j - 1] + imageMatrix[i - 1, j]) / 2;
+                                int A = imageMatrix[i, j - 1]; int B = imageMatrix[i - 1, j];
+                                predictionMatrix[i, j] = (A + B) / 2;
+                            }
+                        }
+                        break;
+                    case 8:
+                        for (int i = 1; i < 256; i++)
+                        {
+                            for (int j = 1; j < 256; j++)
+                            {
+                                int A = imageMatrix[i, j - 1]; int B = imageMatrix[i - 1, j]; int C = imageMatrix[i - 1, j - 1];
+                                int minab = 0; int maxab = 0;
+                                if (A >= B)
+                                {
+                                    minab = B;
+                                    maxab = A;
+                                }
+                                else
+                                {
+                                    maxab = B;
+                                    minab = A;
+                                }
+                                if (C >= maxab)
+                                {
+                                    predictionMatrix[i, j] = minab;
+                                }
+                                else if (C <= minab)
+                                {
+                                    predictionMatrix[i, j] = maxab;
+                                }
+                                else
+                                {
+                                    predictionMatrix[i, j] = A + B - C;
+                                }
                             }
                         }
                         break;
