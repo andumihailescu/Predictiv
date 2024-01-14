@@ -41,7 +41,7 @@
             btnDecode = new Button();
             btnLoadEncoded = new Button();
             btnShowErrorMatrix = new Button();
-            numericUpDown1 = new NumericUpDown();
+            numericUpDownScale = new NumericUpDown();
             rb128 = new RadioButton();
             rbA = new RadioButton();
             rbB = new RadioButton();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)pbOriginalImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbErrorImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDecodedImage).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownScale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
@@ -142,6 +142,7 @@
             btnStore.TabIndex = 8;
             btnStore.Text = "Store";
             btnStore.UseVisualStyleBackColor = true;
+            btnStore.Click += btnStore_Click;
             // 
             // btnSaveDecoded
             // 
@@ -178,15 +179,17 @@
             btnShowErrorMatrix.TabIndex = 12;
             btnShowErrorMatrix.Text = "Show error matrix";
             btnShowErrorMatrix.UseVisualStyleBackColor = true;
+            btnShowErrorMatrix.Click += btnShowErrorMatrix_Click;
             // 
-            // numericUpDown1
+            // numericUpDownScale
             // 
-            numericUpDown1.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
-            numericUpDown1.Location = new Point(587, 338);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(150, 27);
-            numericUpDown1.TabIndex = 13;
-            numericUpDown1.Value = new decimal(new int[] { 15, 0, 0, 65536 });
+            numericUpDownScale.DecimalPlaces = 2;
+            numericUpDownScale.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
+            numericUpDownScale.Location = new Point(587, 338);
+            numericUpDownScale.Name = "numericUpDownScale";
+            numericUpDownScale.Size = new Size(150, 27);
+            numericUpDownScale.TabIndex = 13;
+            numericUpDownScale.Value = new decimal(new int[] { 15, 0, 0, 65536 });
             // 
             // rb128
             // 
@@ -347,7 +350,7 @@
             Controls.Add(rbB);
             Controls.Add(rbA);
             Controls.Add(rb128);
-            Controls.Add(numericUpDown1);
+            Controls.Add(numericUpDownScale);
             Controls.Add(btnShowErrorMatrix);
             Controls.Add(btnSaveDecoded);
             Controls.Add(btnDecode);
@@ -366,7 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)pbOriginalImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbErrorImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDecodedImage).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownScale).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -386,7 +389,7 @@
         private Button btnDecode;
         private Button btnLoadEncoded;
         private Button btnShowErrorMatrix;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDownScale;
         private RadioButton rb128;
         private RadioButton rbA;
         private RadioButton rbB;
