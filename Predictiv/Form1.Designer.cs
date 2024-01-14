@@ -56,6 +56,7 @@
             rbDecoded = new RadioButton();
             numericUpDown2 = new NumericUpDown();
             btnShowHistogram = new Button();
+            rbMyPredictor = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)pbOriginalImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbErrorImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDecodedImage).BeginInit();
@@ -334,11 +335,23 @@
             btnShowHistogram.Text = "Show histogram";
             btnShowHistogram.UseVisualStyleBackColor = true;
             // 
+            // rbMyPredictor
+            // 
+            rbMyPredictor.AutoSize = true;
+            rbMyPredictor.Location = new Point(54, 599);
+            rbMyPredictor.Name = "rbMyPredictor";
+            rbMyPredictor.Size = new Size(114, 24);
+            rbMyPredictor.TabIndex = 28;
+            rbMyPredictor.TabStop = true;
+            rbMyPredictor.Text = "My Predictor";
+            rbMyPredictor.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 653);
+            Controls.Add(rbMyPredictor);
             Controls.Add(btnShowHistogram);
             Controls.Add(numericUpDown2);
             Controls.Add(rbDecoded);
@@ -407,5 +420,6 @@
         private RadioButton rbDecoded;
         private NumericUpDown numericUpDown2;
         private Button btnShowHistogram;
+        private RadioButton rbMyPredictor;
     }
 }

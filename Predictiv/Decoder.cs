@@ -93,7 +93,7 @@ namespace Predictiv
 
                 switch (selectedPredictor)
                 {
-                    case 1: //A
+                    case 1:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -104,7 +104,7 @@ namespace Predictiv
                             }
                         }
                         break;
-                    case 2: //B
+                    case 2:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -115,7 +115,7 @@ namespace Predictiv
                             }
                         }
                         break;
-                    case 3: //C
+                    case 3:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -126,7 +126,7 @@ namespace Predictiv
                             }
                         }
                         break;
-                    case 4: //A + B - C
+                    case 4:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -137,7 +137,7 @@ namespace Predictiv
                             }
                         }
                         break;
-                    case 5: //A + (B - C) / 2
+                    case 5:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -148,7 +148,7 @@ namespace Predictiv
                             }
                         }
                         break;
-                    case 6: //B + (A - C) / 2
+                    case 6:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -159,7 +159,7 @@ namespace Predictiv
                             }
                         }
                         break;
-                    case 7: //(A + B) / 2
+                    case 7:
                         for (int i = 1; i < 256; i++)
                         {
                             for (int j = 1; j < 256; j++)
@@ -199,6 +199,19 @@ namespace Predictiv
                                 {
                                     predictionMatrix[i, j] = A + B - C;
                                 }
+                                imageMatrix[i, j] = predictionMatrix[i, j] + errorMatrix[i, j];
+                            }
+                        }
+                        break;
+                    case 9:
+                        for (int i = 1; i < 256; i++)
+                        {
+                            for (int j = 1; j < 256; j++)
+                            {
+                                int A = imageMatrix[i, j - 1]; int B = imageMatrix[i - 1, j]; int C = imageMatrix[i - 1, j - 1];
+                                List<int> nearPixels = [A, B, C];
+                                nearPixels.Sort();
+                                predictionMatrix[i, j] = nearPixels[1];
                                 imageMatrix[i, j] = predictionMatrix[i, j] + errorMatrix[i, j];
                             }
                         }

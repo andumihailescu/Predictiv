@@ -84,6 +84,10 @@ namespace Predictiv
             {
                 predictionNumber = 8;
             }
+            if (rbMyPredictor.Checked)
+            {
+                predictionNumber = 9;
+            }
         }
 
         private void DisplayImage(PictureBox pictureBox, int[,] imageMatrix)
