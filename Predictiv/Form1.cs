@@ -133,5 +133,10 @@ namespace Predictiv
             decoder.DecodeImage();
             DisplayImage(pbDecodedImage, decoder.GetImageMatrix());
         }
+
+        private void btnSaveDecoded_Click(object sender, EventArgs e)
+        {
+            decoder.StoreDecodedImage();
+        }
     }
 }

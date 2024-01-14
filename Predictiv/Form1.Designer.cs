@@ -152,6 +152,7 @@
             btnSaveDecoded.TabIndex = 11;
             btnSaveDecoded.Text = "Save Decoded";
             btnSaveDecoded.UseVisualStyleBackColor = true;
+            btnSaveDecoded.Click += btnSaveDecoded_Click;
             // 
             // btnDecode
             // 

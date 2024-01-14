@@ -206,5 +206,24 @@ namespace Predictiv
                 }
             }
         }
+
+        public void StoreDecodedImage()
+        {
+            outputFilePath += ".decoded.bmp";
+            bitWriter = new BitWriter(outputFilePath);
+            for (int i = 0; i < 1078; i++)
+            {
+                bitWriter.WriteNBits(8, imageHeader[i]);
+            }
+            for (int i = 255; i >= 0; i--)
+            {
+                for (int j = 0; j < 256; j++)
+                {
+                    bitWriter.WriteNBits(8, (uint)imageMatrix[i, j]);
+                }
+            }
+
+            bitWriter.CloseFile();
+        }
     }
 }
